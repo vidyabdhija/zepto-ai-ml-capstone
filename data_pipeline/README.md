@@ -65,4 +65,8 @@ The `price_inr` value is calculated as:
 
 ```text
 price_inr = price_gbp × 105.50
+## Reproducibility
+
+The complete pipeline can be regenerated from the repository by running
+`python data_pipeline/pipeline.py`. No manual data copy-pasting is required.
 
