@@ -1,0 +1,49 @@
+pd.read_sql JOIN RESULT
+======================================================================
+category_name                                                                                                                                                  title  rating  price_gbp  price_inr  in_stock
+Add a comment The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy       4      23.89    2520.40      True
+Add a comment                                                                                                                                    On a Midnight Clear       3      14.07    1484.38      True
+Add a comment                                                                                                                                         The Art Forger       3      40.76    4300.18      True
+Add a comment                                                                                  Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)       2      53.90    5686.45      True
+Add a comment                                                                                                            The Torch Is Passed: A Harding Family Story       1      19.09    2014.00      True
+          Art                                                                                                                                         Wall and Piece       4      44.18    4660.99      True
+     Business                                                                                                     The Dirty Little Secrets of Getting Your Dream Job       4      33.34    3517.37      True
+    Childrens                                                                                                                          Birdsong: A Story in Pictures       3      54.64    5764.52      True
+    Childrens                                                                                                                                 The Bear and the Piano       1      36.89    3891.90      True
+    Childrens                                                                                                                        The Secret of Dreadwillow Carse       1      56.13    5921.72      True
+ Contemporary                                                                                                                                       When We Collided       1      31.77    3351.74      True
+      Default                                                                     The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer       5      20.59    2172.24      True
+      Default                                                         The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics       4      22.60    2384.30      True
+      Default                                                                                                                         Aladdin and His Wonderful Lamp       3      53.13    5605.22      True
+      Default                                            America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana       3      22.50    2373.75      True
+      Default                                                                                                                                            Penny Maybe       3      33.29    3512.10      True
+      Default                                                                The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull       3      17.93    1891.62      True
+      Default                                                                                                         Maude (1883-1993):She Grew Up with the country       2      18.02    1901.11      True
+      Default                                                                                                                                            Soul Reader       2      39.58    4175.69      True
+      Default                                                                                                         Starving Hearts (Triangular Trade Trilogy, #1)       2      13.99    1475.94      True
+
+pd.merge JOIN RESULT
+======================================================================
+category_name                                                                                                                                                  title  rating  price_gbp  price_inr  in_stock
+Add a comment The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy       4      23.89    2520.40      True
+Add a comment                                                                                                                                    On a Midnight Clear       3      14.07    1484.38      True
+Add a comment                                                                                                                                         The Art Forger       3      40.76    4300.18      True
+Add a comment                                                                                  Judo: Seven Steps to Black Belt (an Introductory Guide for Beginners)       2      53.90    5686.45      True
+Add a comment                                                                                                            The Torch Is Passed: A Harding Family Story       1      19.09    2014.00      True
+          Art                                                                                                                                         Wall and Piece       4      44.18    4660.99      True
+     Business                                                                                                     The Dirty Little Secrets of Getting Your Dream Job       4      33.34    3517.37      True
+    Childrens                                                                                                                          Birdsong: A Story in Pictures       3      54.64    5764.52      True
+    Childrens                                                                                                                                 The Bear and the Piano       1      36.89    3891.90      True
+    Childrens                                                                                                                        The Secret of Dreadwillow Carse       1      56.13    5921.72      True
+ Contemporary                                                                                                                                       When We Collided       1      31.77    3351.74      True
+      Default                                                                     The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer       5      20.59    2172.24      True
+      Default                                                         The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics       4      22.60    2384.30      True
+      Default                                                                                                                         Aladdin and His Wonderful Lamp       3      53.13    5605.22      True
+      Default                                            America's Cradle of Quarterbacks: Western Pennsylvania's Football Factory from Johnny Unitas to Joe Montana       3      22.50    2373.75      True
+      Default                                                                                                                                            Penny Maybe       3      33.29    3512.10      True
+      Default                                                                The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull       3      17.93    1891.62      True
+      Default                                                                                                         Maude (1883-1993):She Grew Up with the country       2      18.02    1901.11      True
+      Default                                                                                                                                            Soul Reader       2      39.58    4175.69      True
+      Default                                                                                                         Starving Hearts (Triangular Trade Trilogy, #1)       2      13.99    1475.94      True
+
+Equivalent outputs: True
