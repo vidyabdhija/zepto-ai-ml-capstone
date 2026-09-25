@@ -42,21 +42,57 @@ Outputs are generated under analytics_module2/outputs/ and analytics_module2/plo
 
 Eight policy documents cover delivery, returns, subscription plans, rider tracking, cancellation, damaged or missing items, gift cards, and customer support.
 
-RAG workflow:
-User question → embedding → ChromaDB retrieval → relevant policy documents → answer generation → source attribution
+### Architecture
 
-Validation: 9/9 local regression questions passed.
+User query → FastAPI → LangGraph → intent classification → ChromaDB retrieval → answer generation → Pydantic response
 
-Run locally:
-python -m uvicorn support_assistant.main:app --host 127.0.0.1 --port 7860
+- **Ingestion:** `support_assistant/ingest.py` loads the 8 policy documents and stores their embeddings in ChromaDB.
+- **Embeddings:** `all-MiniLM-L6-v2` is used for document and query embeddings.
+- **Retrieval:** ChromaDB returns the **top 3 relevant chunks** for policy questions.
+- **LangGraph:** `StateGraph` contains three named nodes: `classify_intent`, `retrieve_and_answer`, and `direct_answer`.
+- **Mock mode:** `MOCK_LLM` defaults to enabled (`MOCK_LLM=1`), so the application runs without an external LLM API. Policy questions use deterministic canned answers; non-policy questions use the direct-answer node.
+- **Output:** Pydantic models return `answer`, `sources`, and `confidence`.
+- **API:** FastAPI exposes `GET /health` and `POST /ask`.
 
-Endpoints: GET /health and POST /ask
+### Example API calls with default `MOCK_LLMa
 
-Docker build:
-docker build -f support_assistant/Dockerfile -t zepto-policy-assistant .
+**Policy retrieval example**
 
-Docker run:
-docker run --rm -p 7860:7860 zepto-policy-assistant
+Request:
+
+`POST /ask` with `{"query":"How long does delivery take?"}`
+
+Response:
+
+`{"answer":"Zepto delivers grocery and household essentials within 10 to 30 minutes of order confirmation, depending on the delivery zone and current order volume.","sources":["doc_01"],"confidence":0.95}`
+
+**General/non-policy example**
+
+Request:
+
+`POST /ask` with `{"query":"Tell me about the weather today."}`
+
+Response:
+
+`{"answer":"I can only answer questions about Zepto policies right now. Please ask about delivery, returns, refunds, membership, tracking, cancellation, gift cards, damaged or missing items, or support.","sources":[],"confidence":0.90}`
+
+### Validation
+
+Local regression testing passed **9/9 questions**. The FastAPI service and Docker container were also tested successfully.
+
+### Run locally
+
+`python -m uvicorn support_assistant.main:app --host 127.0.0.1 --port 7860`
+
+### Docker
+
+Build:
+
+`docker build -f support_assistant/Dockerfile -t zepto-policy-assistant .`
+
+Run:
+
+`docker run --rm -p 7860:7860 zepto-policy-assistant`
 
 ## Module 4 — Predictive Analytics + ML API
 
