@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+
+load_dotenv()
 from fastapi import FastAPI
 
 from .models import AskRequest, AskResponse
@@ -30,3 +33,14 @@ def health():
 @app.post("/ask", response_model=AskResponse)
 def ask(request: AskRequest):
     return ask_question(request.query)
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(
+        "support_assistant.main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=False,
+    )
