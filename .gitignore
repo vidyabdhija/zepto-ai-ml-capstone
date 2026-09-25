@@ -1,25 +1,31 @@
-
-.venv/
-__pycache__/
-*.pyc
-.DS_Store
-.ipynb_checkpoints/
-.env
-*.log
-support_assistant/chroma_db/
+# Python virtual environments
 .venv/
 venv/
 env/
+
+# Python cache files
 __pycache__/
 *.pyc
-.DS_Store
+
+# Environment variables and secrets
+.env
+
+# Jupyter Notebook
 .ipynb_checkpoints/
 
+# Operating system files
+.DS_Store
 
+# Log files
+*.log
 
+# Generated ChromaDB files
+support_assistant/chroma_db/
+
+# Generated analytics outputs
 analytics_module2/outputs/
 analytics_module2/plots/
-
 analytics/outputs/
 
+# Keep the trained ML model
 !analytics/models/titanic_model.joblib
